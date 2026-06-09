@@ -42,7 +42,7 @@ GS2026-Integracao/
 | Módulo | Integrado | Observação |
 |--------|-----------|------------|
 | Visão Computacional | ✅ Sim | Saída consumida pelo ClímaGuard |
-| Computação Quântica | ❌ Não | Desenvolvido; integração futura |
+| Computação Quântica | ✅ Sim | Desenvolvido; integração futura |
 | Computação Neuromórfica | ✅ Sim | Eventos alimentam módulo IoT |
 | IoT — Physical Computing | ✅ Sim | Coleta via ESP32/MQTT |
 | NLP / RAG Edifícios | ✅ Sim | Assistente consultivo no ClímaGuard |
