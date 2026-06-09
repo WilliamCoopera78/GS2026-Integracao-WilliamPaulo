@@ -1,0 +1,15 @@
+neo_id,name,is_hazardous,diameter_km_min,diameter_km_max,velocity_kph,miss_distance_km,approach_date,nasa_url
+3428531,(2008 SY150),NÃO,0.0305,0.0682,37913.22,21740610.48,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3428531
+3836085,(2018 VQ3),NÃO,0.2063,0.4614,66118.74,22434617.96,2026-06-03,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3836085
+2437844,437844 (1999 MN),SIM,0.1669,0.3733,74084.2,24168540.49,2026-06-03,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=2437844
+3774363,(2017 HE49),NÃO,0.0484,0.1082,15909.41,25541099.33,2026-06-01,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3774363
+3795028,(2017 YV3),NÃO,0.0266,0.0594,23585.49,39307755.51,2026-06-01,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3795028
+3836092,(2018 VO3),NÃO,0.0101,0.0226,19614.68,39584551.52,2026-06-01,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3836092
+3678630,(2014 OL339),NÃO,0.0739,0.1652,42704.14,51047781.47,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3678630
+3884238,(2019 US10),SIM,0.1943,0.4346,51365.69,58252785.83,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3884238
+3553284,(2010 XD25),NÃO,0.1873,0.4188,104648.71,63172497.3,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3553284
+3843765,(2019 RH),NÃO,0.0168,0.0375,43131.59,65192919.43,2026-06-03,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3843765
+3579625,(2011 SF108),NÃO,0.2586,0.5781,56387.06,65479736.21,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3579625
+3698472,(2014 WD201),SIM,0.3842,0.8591,71908.9,66550320.38,2026-06-03,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3698472
+2141531,141531 (2002 GB),NÃO,0.3931,0.8791,52573.02,69798316.84,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=2141531
+3410171,(2008 JV2),NÃO,0.0305,0.0682,81030.64,74684559.57,2026-06-02,https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=3410171

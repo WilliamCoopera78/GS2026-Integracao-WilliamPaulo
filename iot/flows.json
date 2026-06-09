@@ -1,0 +1,534 @@
+[
+    {
+        "id": "396b35923faa02eb",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6206e86840ae6f5a",
+        "type": "mqtt in",
+        "z": "396b35923faa02eb",
+        "name": "MQTT GS",
+        "topic": "iot/aluno/gsFiasco",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "ac4e6f2229797547",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "940f21ad88633578",
+                "7e6b8fd1022ece91"
+            ]
+        ]
+    },
+    {
+        "id": "940f21ad88633578",
+        "type": "function",
+        "z": "396b35923faa02eb",
+        "name": "Desembramento",
+        "func": "var msgTemp = { payload: msg.payload.temperatura };\nvar msgUmidAr = { payload: msg.payload.umidade_ar };\nvar msgUmidSolo = { payload: msg.payload.umidade_solo };\nvar msgLuz = { payload: msg.payload.luminosidade };\n\nreturn [msgTemp, msgUmidAr, msgUmidSolo, msgLuz];",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 380,
+        "wires": [
+            [
+                "f863002409290e9e",
+                "8aaa11569601c530"
+            ],
+            [
+                "546e54350a7f1e13"
+            ],
+            [
+                "b01808511c2b00d0",
+                "79e35b05cd8003e8"
+            ],
+            [
+                "034e8601aa507372"
+            ]
+        ]
+    },
+    {
+        "id": "034e8601aa507372",
+        "type": "ui_chart",
+        "z": "396b35923faa02eb",
+        "name": "Luminosidade",
+        "group": "1fdbf4877ea166e0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Luminosidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "4095",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1000,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f863002409290e9e",
+        "type": "ui_gauge",
+        "z": "396b35923faa02eb",
+        "name": "Temperatura",
+        "group": "1fdbf4877ea166e0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "C°",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "546e54350a7f1e13",
+        "type": "ui_gauge",
+        "z": "396b35923faa02eb",
+        "name": "Umidade Ar",
+        "group": "1fdbf4877ea166e0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade Ar",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b01808511c2b00d0",
+        "type": "ui_gauge",
+        "z": "396b35923faa02eb",
+        "name": "Umidade Solo",
+        "group": "1fdbf4877ea166e0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade Solo",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8aaa11569601c530",
+        "type": "switch",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 280,
+        "wires": [
+            [
+                "a5976fb50a4bd62d"
+            ]
+        ]
+    },
+    {
+        "id": "79e35b05cd8003e8",
+        "type": "switch",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "1000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 400,
+        "wires": [
+            [
+                "5fff3e480b9956e1"
+            ]
+        ]
+    },
+    {
+        "id": "5fff3e480b9956e1",
+        "type": "delay",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 400,
+        "wires": [
+            [
+                "843d087b6e41fef8"
+            ]
+        ]
+    },
+    {
+        "id": "a5976fb50a4bd62d",
+        "type": "delay",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 280,
+        "wires": [
+            [
+                "cf61709363860391"
+            ]
+        ]
+    },
+    {
+        "id": "373f23d0abf8b02f",
+        "type": "telegram sender",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "bot": "49f11dfc09e2681a",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1470,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf61709363860391",
+        "type": "function",
+        "z": "396b35923faa02eb",
+        "name": "function 1",
+        "func": "msg.payload = {\n    chatId: 8742849494,\n    type: \"message\",\n    content: \"Alerta: Margem termal excedida na estufa. Registro: \" + msg.payload + \" °C\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 280,
+        "wires": [
+            [
+                "373f23d0abf8b02f"
+            ]
+        ]
+    },
+    {
+        "id": "843d087b6e41fef8",
+        "type": "function",
+        "z": "396b35923faa02eb",
+        "name": "function 2",
+        "func": "msg.payload = {\n    chatId: 8742849494,\n    type: \"message\",\n    content: \"Alerta: Risco de estresse hídrico. Nível: \" + msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 400,
+        "wires": [
+            [
+                "373f23d0abf8b02f"
+            ]
+        ]
+    },
+    {
+        "id": "7e6b8fd1022ece91",
+        "type": "function",
+        "z": "396b35923faa02eb",
+        "name": "InfluxDB",
+        "func": "// Verifica conversão\nif (typeof msg.payload === 'string') {\n    try { msg.payload = JSON.parse(msg.payload); }\n    catch (e) { return null; }\n}\n\nif (!msg.payload || msg.payload.temperatura === undefined) { return null; }\n\n// Estruturação em array para node-red-contrib-influxdb\nmsg.payload = [\n    {\n        temperatura: msg.payload.temperatura,\n        umidade_ar: msg.payload.umidade_ar,\n        umidade_solo: msg.payload.umidade_solo,\n        luminosidade: msg.payload.luminosidade\n    },\n    {\n        dispositivo: \"esp32_wokwi\",\n        setor: \"estufa_alfa\"\n    }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "2237333799db58b2"
+            ]
+        ]
+    },
+    {
+        "id": "2237333799db58b2",
+        "type": "influxdb out",
+        "z": "396b35923faa02eb",
+        "influxdb": "ff35d316fe6505b8",
+        "name": "",
+        "measurement": "telemetria",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "FIAP-PROFESSOR",
+        "bucket": "agricultura_espacial",
+        "x": 1010,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "162054bd8dd2a83e",
+        "type": "inject",
+        "z": "396b35923faa02eb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 280,
+        "wires": [
+            [
+                "f180e79d12f8fb61"
+            ]
+        ]
+    },
+    {
+        "id": "f180e79d12f8fb61",
+        "type": "exec",
+        "z": "396b35923faa02eb",
+        "command": "python",
+        "addpay": "",
+        "append": "C:\\Users\\biel6\\.node-red\\gerador_relatorio.py",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 730,
+        "y": 280,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ac4e6f2229797547",
+        "type": "mqtt-broker",
+        "name": "MQTT GS",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1fdbf4877ea166e0",
+        "type": "ui_group",
+        "name": "Componentes",
+        "tab": "e94a735e47b291e8",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "49f11dfc09e2681a",
+        "type": "telegram bot",
+        "botname": "agrogsbot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "ff35d316fe6505b8",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "FIAP-PROFESSOR",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": 10,
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "e94a735e47b291e8",
+        "type": "ui_tab",
+        "name": "Componentes",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "481a98ffcfdc33e7",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-telegrambot": "17.4.5",
+            "node-red-contrib-influxdb": "0.7.0"
+        }
+    }
+]

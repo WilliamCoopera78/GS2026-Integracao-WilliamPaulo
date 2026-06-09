@@ -1,0 +1,69 @@
+# ─────────────────────────────────────────────────────────────────
+# docker-compose.yml – ARIA Space RPA
+# FIAP | Global Solution 2026 | AI for RPA
+#
+# Serviços:
+#   aria-api      → API REST Flask (porta 5000)
+#   aria-pipeline → Executa o pipeline de automação e encerra
+# ─────────────────────────────────────────────────────────────────
+
+version: "3.9"
+
+services:
+
+  # ── API REST principal ──────────────────────────────────────────
+  aria-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aria-api
+    image: aria-space-rpa:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}   # Defina no .env
+      - PORT=5000
+    volumes:
+      - aria-data:/app/data          # Banco SQLite persistido
+      - aria-reports:/app/reports    # Relatórios persistidos
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - aria-net
+
+  # ── Pipeline de automação (one-shot) ───────────────────────────
+  aria-pipeline:
+    image: aria-space-rpa:latest
+    container_name: aria-pipeline
+    command: python src/main.py
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - aria-data:/app/data
+      - aria-reports:/app/reports
+    depends_on:
+      aria-api:
+        condition: service_healthy
+    networks:
+      - aria-net
+    restart: "no"   # Executa uma vez e encerra
+
+
+# ── Volumes persistentes ────────────────────────────────────────
+volumes:
+  aria-data:
+    name: aria-data
+  aria-reports:
+    name: aria-reports
+
+
+# ── Rede interna ────────────────────────────────────────────────
+networks:
+  aria-net:
+    name: aria-network
+    driver: bridge

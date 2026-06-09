@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "System",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": 6.88, "left": 4.8, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -9.3, "left": 138.6, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": 3.2, "left": -191.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "higrometro", "top": 219.5, "left": 19, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay", "top": 125, "left": 172.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led_status",
+      "top": -61.2,
+      "left": 147.8,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D13", "dht:SDA", "green", [ "h18.71", "v-9.6", "h38.3" ] ],
+    [ "esp:3V3", "ldr:VCC", "red", [ "h18.71", "v-163.2", "h-144" ] ],
+    [ "esp:GND.1", "ldr:GND", "black", [ "v0" ] ],
+    [ "esp:D34", "ldr:AO", "blue", [ "v0" ] ],
+    [ "esp:GND.1", "higrometro:GND", "black", [ "h18.71", "v134.4" ] ],
+    [ "esp:3V3", "higrometro:VCC", "red", [ "h9.11", "v124.8" ] ],
+    [ "esp:D35", "higrometro:SIG", "orange", [ "h-19.2", "v220.8" ] ],
+    [ "esp:GND.2", "relay:GND", "black", [ "h-9.6", "v57.6", "h172.8" ] ],
+    [ "esp:5V", "relay:VCC", "red", [ "v0" ] ],
+    [ "esp:D4", "relay:IN", "purple", [ "v0" ] ],
+    [ "esp:GND.2", "led_status:C", "black", [ "h-9.6", "v-172.8" ] ],
+    [ "esp:D2", "led_status:A", "green", [ "h9.11", "v-153.6" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "v57.6" ] ],
+    [ "dht:GND", "esp:GND.1", "black", [ "v28.8", "h-19.2", "v19.2" ] ]
+  ],
+  "dependencies": {}
+}

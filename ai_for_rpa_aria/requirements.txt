@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────────────────────────
+# requirements.txt 
+# ─────────────────────────────────────────────────────────────────
+
+# ── Web Crawling / Scraping ───────────────────────────────────────
+requests==2.32.3            # Cliente HTTP para APIs REST e Ollama
+beautifulsoup4==4.12.3      # Parser HTML/XML para web crawling
+lxml==5.2.2                 # Backend rápido para BeautifulSoup
+
+# ── API REST (servidor) ───────────────────────────────────────────
+flask==3.0.3                # Micro-framework para API REST
+
+# ── Monitoramento de Sistema ──────────────────────────────────────
+psutil==6.0.0               # Métricas de CPU, RAM, disco e processos
+
+# ── Arquivos e Relatórios ─────────────────────────────────────────
+openpyxl==3.1.5             # Leitura/escrita de planilhas Excel (.xlsx)
+
+# ── Utilitários ───────────────────────────────────────────────────
+python-dotenv==1.0.1        # Leitura de variáveis de ambiente (.env)
+
+# NOTA: A IA roda via Ollama (local)
+# Instale o Ollama em: https://ollama.com/download
+# Baixe o modelo com: ollama pull llama3.2

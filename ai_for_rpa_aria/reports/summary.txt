@@ -1,0 +1,56 @@
+======================================================================
+  ARIA – Automated Reconnaissance & Intelligence for Astronomy
+  FIAP | Global Solution 2026 | AI for RPA
+  Gerado em: 2026-06-01 21:32:12
+======================================================================
+
+── ESTATÍSTICAS DA COLETA ─────────────────────────────────────────
+  Artigos coletados : 15
+  NEOs monitorados  : 14
+  NEOs perigosos    : 3
+  Snapshots ISS     : 1
+  Análises de IA    : 1
+
+── POSIÇÃO ATUAL DA ISS ───────────────────────────────────────────
+  Latitude  : -36.6806°
+  Longitude : 80.5319°
+  Capturado : 2026-06-02T00:31:23.579953+00:00
+
+── OBJETO MAIS PRÓXIMO DA TERRA (NEO) ─────────────────────────────
+  Nome        : (2008 SY150)
+  Distância   : 21,740,610 km
+  Velocidade  : 37,913 km/h
+  Diâmetro    : 0.030 – 0.068 km
+  ⚠ Perigoso  : NÃO
+
+  Total de NEOs perigosos nas próximas 48h: 3
+
+── MONITORAMENTO DO SISTEMA (psutil) ──────────────────────────────
+  CPU        : 2.9%
+  RAM usada  : 82.7%
+  Disco      : 74.8%
+  PID ARIA   : 31908
+  Threads    : 4
+
+── ANÁLISE DE INTELIGÊNCIA ARTIFICIAL ──────────────────────────────
+
+  [RESUMO EXECUTIVO]
+  **Relatório Técnico de Análise de Dados Espaciais**
+
+**RESUMO EXECUTIVO**
+
+A exploração espacial continua a ser um campo em constante evolução, com novas notícias e desenvolvimentos que refletem o avanço da tecnologia e da cooperação internacional. A NASA recentemente selecionou Denmar Technical Services para realizar modificações e testes de um veículo de gravidade reduzida, enquanto a SpaceX e a
+
+  [ALERTA DE AMEAÇAS]
+  2 NEO(s) potencialmente perigoso(s) detectado(s) nas próximas 48h.
+
+  [INSIGHTS ESTRATÉGICOS]
+  
+
+======================================================================
+  Artefatos exportados:
+    • reports/articles.csv   – Notícias espaciais (CSV)
+    • reports/neos.csv       – Objetos próximos da Terra (CSV)
+    • reports/mission_data.json – Dados consolidados (JSON)
+    • reports/summary.txt    – Este relatório (TXT)
+======================================================================
