@@ -65,7 +65,7 @@ GS2026-Integracao/
 | IA Generativa SpaceRAG — GitHub | https://github.com/biellpessoa/GenAI-GS |
 | AI for RPA (ARIA) — GitHub | https://github.com/biellpessoa/GS_Automation |
 | Front-end ClímaGuard — GitHub | https://github.com/biellpessoa/climaguard |
-| **Vídeo de Integração** | *(a preencher antes da entrega)* |
+| **Vídeo de Integração** | https://youtu.be/s1iuzgm04GU |
 
 ---
 
